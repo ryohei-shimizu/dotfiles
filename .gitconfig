@@ -1,0 +1,29 @@
+[user]
+    name = Ryohei Shimizu
+[color]
+    ui = auto
+[alias]
+    a   = add
+    b   = branch
+    bm  = ! git branch --merged | grep -v '*'
+    bmr = ! git branch --merged | grep -v '*' | xargs git branch -d
+    c   = commit
+    ca  = commit --amend
+    cb  = checkout -b
+    ce  = commit --allow-empty -m \"empty commit\"
+    co  = checkout
+    cp  = cherry-pick
+    d   = diff
+    dh  = diff HEAD^
+    ds  = diff --staged
+    hub = config user.email \"47919813+ryohei-shimizu@users.noreply.github.com\"
+    l   = log       --graph --oneline
+    la  = log --all --graph --oneline --branches --remotes --tags --date-order
+    s   = status
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[fetch]
+    prune = true
+[pull]
+    rebase = true
