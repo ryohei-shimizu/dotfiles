@@ -1,19 +1,34 @@
-set show-mode-in-prompt on
-set editing-mode vi
-set vi-ins-mode-string \1\e[34;1m\2[I] \1\e[0m\2
-set vi-cmd-mode-string \1\e[31;1m\2[C] \1\e[0m\2
+set bell-style none
 
+set editing-mode vi
+$if mode=vi
+    set keymap vi-command
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+    j:history-search-forward
+    k:history-search-backward
+
+    set keymap vi-insert
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+
+    set show-mode-in-prompt on
+    set vi-ins-mode-string \1\e[34;1m\2[I]\1\e[0m \2
+    set vi-cmd-mode-string \1\e[31;1m\2[C]\1\e[0m \2
+$endif
+
+set blink-matching-paren on
+set colored-completion-prefix on
+set colored-stats on
 set completion-ignore-case on
+set mark-symlinked-directories on
+set match-hidden-files on
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set visible-stats on
 
-"\e[A":history-search-backward
-"\e[B":history-search-forward
-
-Tab: menu-complete
-"\e[Z": menu-complete-backward
-
 $if Bash
     space: magic-space
+    Tab: menu-complete
+    "\e[Z": menu-complete-backward
 $endif
