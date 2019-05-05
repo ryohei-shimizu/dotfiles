@@ -1,0 +1,16 @@
+set line-graphics = utf-8
+set mouse = true
+set refresh-mode = auto
+set tab-size = 4
+
+bind diff    R !git rebase -i %(commit)
+bind generic F !git fetch --all --prune %(remote)
+bind generic L !git pull %(remote)
+bind generic P ?git push -u %(remote) %(repo:head)
+bind main    ! ?git revert %(commit)
+bind main    B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
+bind main    F !git fetch %(remote)
+bind main    M ?git merge %(branch)
+bind main    R !git rebase -i %(commit)
+bind refs    B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
+bind refs    x ?sh -c "git branch --merged | grep -vE '^\\*|master$|develop$' | xargs git branch -d
