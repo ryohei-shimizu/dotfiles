@@ -13,3 +13,4 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
+export HISTSIZE=65536

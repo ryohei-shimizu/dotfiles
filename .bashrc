@@ -5,7 +5,6 @@ export HOMEBREW_CACHE=/opt/homebrew/cache
 
 stty stop undef
 
-HISTSIZE=65536
 
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
