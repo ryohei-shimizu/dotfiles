@@ -1,6 +1,8 @@
 # .bash_profile
 
 [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]] && . /opt/homebrew/etc/profile.d/bash_completion.sh
+[[ -d /Applications/Xcode.app/Contents/Developer ]] && \
+        export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
