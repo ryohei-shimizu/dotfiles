@@ -1,8 +1,5 @@
 # .bashrc
 
-export PATH=/opt/homebrew/bin:${PATH}
-export HOMEBREW_CACHE=/opt/homebrew/cache
-
 stty stop undef
 
 [[ ! -r ~/.git-completion.bash ]] && curl -s \
