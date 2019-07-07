@@ -19,3 +19,43 @@ else
 fi
 
 [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+
+function postinstall() {
+    if [ $(uname) == 'Darwin' ]; then
+        local pkgs=( \
+                "bash-completion@2" \
+                "tig" \
+                "tmux" \
+                )
+        for pkg in ${pkgs[@]}; do
+            brew install ${pkg}
+        done
+
+        defaults delete com.apple.dock
+        defaults write  com.apple.dock autohide       -bool true
+        defaults write  com.apple.dock autohide-delay -float 0
+        defaults write  com.apple.dock ResetLaunchPad -bool true
+
+        # Hot corners
+        #  0: -                      2: Mission Control
+        #  3: Application Windows    4: Desktop
+        #  5: Start Screen Saver     6: Disable Screen Saver
+        #  7: Dashboard             10: Put Display to Sleep
+        # 11: Launchpad             12: Notification Center
+
+        # Top left screen corner
+        defaults write com.apple.dock wvous-tl-corner -int 2
+        defaults write com.apple.dock wvous-tl-modifier -int 0
+        # Top right screen corner
+        defaults write com.apple.dock wvous-tr-corner -int 12
+        defaults write com.apple.dock wvous-tr-modifier -int 0
+        # Bottom left screen corner
+        defaults write com.apple.dock wvous-bl-corner -int 11
+        defaults write com.apple.dock wvous-bl-modifier -int 0
+        # Bottom right screen corner
+        defaults write com.apple.dock wvous-br-corner -int 0
+        defaults write com.apple.dock wvous-br-modifier -int 0
+
+        killall Dock
+    fi
+}
