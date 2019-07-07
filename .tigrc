@@ -14,3 +14,23 @@ bind main    M ?git merge %(branch)
 bind main    R !git rebase -i %(commit)
 bind refs    B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs    x ?sh -c "git branch --merged | grep -vE '^\\*|master$|develop$' | xargs git branch -d
+
+# Vim-style keybindings for Tig
+bind generic h scroll-left
+bind generic j move-down
+bind generic k move-up
+bind generic l scroll-right
+
+bind generic g  none
+bind generic gg move-first-line
+bind generic gj next
+bind generic gk previous
+bind generic gp parent
+bind generic gP back
+bind generic gn view-next
+
+bind main    G move-last-line
+bind generic G move-last-line
+
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
