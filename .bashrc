@@ -44,7 +44,7 @@ function postinstall() {
         # 11: Launchpad             12: Notification Center
 
         # Top left screen corner
-        defaults write com.apple.dock wvous-tl-corner -int 2
+        defaults write com.apple.dock wvous-tl-corner -int 0
         defaults write com.apple.dock wvous-tl-modifier -int 0
         # Top right screen corner
         defaults write com.apple.dock wvous-tr-corner -int 12
