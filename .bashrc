@@ -4,6 +4,8 @@ stty stop undef
 
 [[ ! -r ~/.git-completion.bash ]] && curl -s \
         https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
+[[ ! -r ~/.git-completion.zsh ]] && curl -s \
+        https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh > ~/.git-completion.zsh
 [[ ! -r ~/.git-prompt.sh ]] && curl -s \
         https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
 
