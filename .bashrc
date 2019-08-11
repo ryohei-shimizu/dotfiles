@@ -23,9 +23,9 @@ else
 fi
 
 if [ -n ${ZSH_VERSION} ]; then
-    :
+    configure_zsh
 else
-    [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+    configure_bash
 fi
 
 function postinstall() {
