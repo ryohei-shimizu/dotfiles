@@ -14,7 +14,11 @@ else
     PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
 fi
 
-[[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+if [ -n ${ZSH_VERSION} ]; then
+    :
+else
+    [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+fi
 
 function postinstall() {
     if [ $(uname) == 'Darwin' ]; then
