@@ -2,6 +2,12 @@
 
 function configure_bash() {
     [[ -z ${BASH_VERSION} ]] && return
+
+    if [ type $(__git_ps1) ]; then
+        PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
+    else
+        PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
+    fi
 }
 
 function configure_zsh() {
@@ -17,9 +23,6 @@ if [ -r ~/.git-prompt.sh ]; then
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="verbose"
-    PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
-else
-    PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
 fi
 
 if [ -n ${ZSH_VERSION} ]; then
