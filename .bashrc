@@ -1,4 +1,4 @@
-# .bashrc
+# .bashrc, .zshrc
 
 stty stop undef
 
