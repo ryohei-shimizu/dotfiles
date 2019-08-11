@@ -3,6 +3,8 @@
 function configure_bash() {
     [[ -z ${BASH_VERSION} ]] && return
 
+    [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
+
     if [ type $(__git_ps1) ]; then
         PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
     else
