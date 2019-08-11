@@ -1,5 +1,13 @@
 # .bashrc, .zshrc
 
+function configure_bash() {
+    [[ -z ${BASH_VERSION} ]] && return
+}
+
+function configure_zsh() {
+    [[ -z ${ZSH_VERSION} ]] && return
+}
+
 stty stop undef
 
 
