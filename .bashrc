@@ -21,6 +21,10 @@ function configure_zsh() {
     else
         PS1='%F{green}%m%f:%F{blue}%c%f %n\$ '
     fi
+
+    if [ -f ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+        . ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
 }
 
 stty stop undef
