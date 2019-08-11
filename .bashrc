@@ -12,6 +12,13 @@ function configure_bash() {
 
 function configure_zsh() {
     [[ -z ${ZSH_VERSION} ]] && return
+
+    if [ type $(__git_ps1) ]; then
+        setopt PROMPT_SUBST
+        PS1='%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f %n\$ '
+    else
+        PS1='%F{green}%m%f:%F{blue}%c%f %n\$ '
+    fi
 }
 
 stty stop undef
