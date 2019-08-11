@@ -1,4 +1,4 @@
-# .bash_profile
+# .bash_profile, .zshenv
 
 [[ -d /Applications/Xcode.app/Contents/Developer ]] && \
         export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
