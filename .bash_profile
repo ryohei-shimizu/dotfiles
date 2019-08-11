@@ -16,11 +16,8 @@ if [ -n ${ZSH_VERSION} ]; then
 else
     [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]] && \
         . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
-fi
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+    [[ -f ~/.bashrc ]] && . ~/.bashrc
 fi
 
 # User specific environment and startup programs
