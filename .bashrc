@@ -56,6 +56,8 @@ function postinstall() {
                 "bash-completion@2" \
                 "tig" \
                 "tmux" \
+                "zsh-autosuggestions" \
+                "zsh-completions" \
                 )
         for pkg in ${pkgs[@]}; do
             brew install ${pkg}
