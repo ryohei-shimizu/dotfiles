@@ -17,9 +17,9 @@ function configure_zsh() {
 
     if [ type $(__git_ps1) ]; then
         setopt PROMPT_SUBST
-        PS1='%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f %n\$ '
+        PS1=$'%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%n\$ '
     else
-        PS1='%F{green}%m%f:%F{blue}%c%f %n\$ '
+        PS1=$'%F{green}%m%f:%F{blue}%c%f\n%n\$ '
     fi
 
     if [ -f ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
