@@ -15,6 +15,10 @@ function configure_bash() {
 function configure_zsh() {
     [[ -z ${ZSH_VERSION} ]] && return
 
+    if [ -e ${HOMEBREW_PREFIX}/share/zsh-completions ]; then
+        fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+    fi
+
     if [ type $(__git_ps1) ]; then
         setopt PROMPT_SUBST
         PS1=$'%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%n\$ '
