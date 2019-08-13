@@ -62,6 +62,7 @@ function postinstall() {
                 "tmux" \
                 "zsh-autosuggestions" \
                 "zsh-completions" \
+                "zsh-syntax-highlighting" \
                 )
         for pkg in ${pkgs[@]}; do
             brew install ${pkg}
