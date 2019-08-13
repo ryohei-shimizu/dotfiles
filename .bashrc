@@ -19,6 +19,10 @@ function configure_zsh() {
         fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
     fi
 
+    HISTSIZE=1000
+    SAVEHIST=1000
+    HISTFILE=~/.history
+
     # Prompting
     setopt PROMPT_SUBST
 
