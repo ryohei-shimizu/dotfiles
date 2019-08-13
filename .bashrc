@@ -58,6 +58,8 @@ else
     configure_bash
 fi
 
+if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
+
 function postinstall() {
     if [ $(uname) == 'Darwin' ]; then
         local pkgs=( \
