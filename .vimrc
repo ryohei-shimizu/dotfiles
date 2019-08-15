@@ -41,6 +41,8 @@ augroup lazy-load
     call s:plugin_nerdtree()
 augroup END
 
+filetype plugin on
+
 syntax on
 
 set autoread
