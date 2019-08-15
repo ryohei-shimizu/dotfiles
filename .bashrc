@@ -26,6 +26,8 @@ function configure_zsh() {
     # Prompting
     setopt PROMPT_SUBST
 
+    bindkey -v
+
     if [ type $(__git_ps1) ]; then
         PS1=$'%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%n\$ '
     else
