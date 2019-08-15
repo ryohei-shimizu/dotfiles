@@ -5,9 +5,14 @@ function! s:plugin_airline()
     let g:airline_theme='distinguished'
 endfunction
 
+function! s:plugin_fugitive()
+    packadd vim-fugitive
+endfunction
+
 augroup lazy-load
     autocmd!
     call s:plugin_airline()
+    call s:plugin_fugitive()
 augroup END
 
 syntax on
