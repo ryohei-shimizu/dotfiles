@@ -1,5 +1,15 @@
 " .vimrc
 
+function! s:plugin_airline()
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_theme='distinguished'
+endfunction
+
+augroup lazy-load
+    autocmd!
+    call s:plugin_airline()
+augroup END
+
 syntax on
 
 set autoread
