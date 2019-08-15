@@ -13,11 +13,16 @@ function! s:plugin_gitgutter()
     packadd vim-gitgutter
 endfunction
 
+function! s:plugin_nerdtree()
+    packadd nerdtree
+endfunction
+
 augroup lazy-load
     autocmd!
     call s:plugin_airline()
     call s:plugin_fugitive()
     call s:plugin_gitgutter()
+    call s:plugin_nerdtree()
 augroup END
 
 syntax on
