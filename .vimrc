@@ -1,5 +1,10 @@
 " .vimrc
 
+function! s:plugins_for_swift()
+    packadd vim-lsp
+    packadd async.vim
+endfunction
+
 function! s:plugin_airline()
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_theme='distinguished'
@@ -19,6 +24,7 @@ endfunction
 
 augroup lazy-load
     autocmd!
+    autocmd FileType swift call s:plugins_for_swift()
     call s:plugin_airline()
     call s:plugin_fugitive()
     call s:plugin_gitgutter()
