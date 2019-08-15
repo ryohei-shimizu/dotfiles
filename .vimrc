@@ -9,10 +9,15 @@ function! s:plugin_fugitive()
     packadd vim-fugitive
 endfunction
 
+function! s:plugin_gitgutter()
+    packadd vim-gitgutter
+endfunction
+
 augroup lazy-load
     autocmd!
     call s:plugin_airline()
     call s:plugin_fugitive()
+    call s:plugin_gitgutter()
 augroup END
 
 syntax on
