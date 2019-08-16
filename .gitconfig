@@ -22,7 +22,6 @@
     s   = status
 [core]
     editor = vim
-    excludesfile = ~/.gitignore_global
 [fetch]
     prune = true
 [pull]
