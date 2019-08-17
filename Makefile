@@ -1,4 +1,4 @@
-SRCS = .bash_profile .bashrc .gitconfig .inputrc .tigrc .tmux.conf .vim .vimrc .zshenv .zshrc
+SRCS = .bash_profile .bashrc .config/git .inputrc .tigrc .tmux.conf .vim .vimrc .zshenv .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
 
 ~/%: %
