@@ -1,1 +1,7 @@
 # dotfiles
+
+## Installation
+
+```
+make install
+```
