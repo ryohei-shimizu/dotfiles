@@ -45,6 +45,13 @@ function configure_zsh() {
 
 stty stop undef
 
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias chgrp='chgrp -v'
+alias chmod='chmod -v'
+alias chown='chown -v'
 
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
