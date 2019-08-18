@@ -60,6 +60,8 @@ alias chgrp='chgrp -v'
 alias chmod='chmod -v'
 alias chown='chown -v'
 
+alias g='git'
+
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
