@@ -59,10 +59,6 @@ function! s:plugin_nerdcommenter()
 	let g:NERDToggleCheckAllLines = 1
 endfunction
 
-function! s:plugin_nerdtree()
-    packadd nerdtree
-endfunction
-
 augroup lazy-load
     autocmd!
     autocmd FileType swift call s:plugins_for_swift()
@@ -70,7 +66,6 @@ augroup lazy-load
     call s:plugin_fugitive()
     call s:plugin_gitgutter()
     call s:plugin_nerdcommenter()
-    call s:plugin_nerdtree()
 augroup END
 
 filetype plugin on
