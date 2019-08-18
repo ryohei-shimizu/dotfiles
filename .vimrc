@@ -1,5 +1,15 @@
 " .vimrc
 
+function! ExecCurrentLineOnBash()
+    .w !bash
+endfunction
+
+function! ChangeFileFormatSJIS2UTF8()
+    e ++enc=cp932
+    set fileencoding=utf-8
+    set fileformat=unix
+endfunction
+
 function! s:plugins_for_swift()
     packadd vim-lsp
     packadd async.vim
