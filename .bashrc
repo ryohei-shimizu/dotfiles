@@ -62,6 +62,10 @@ alias chown='chown -v'
 
 alias g='git'
 
+alias mk='make'
+alias mkc='make clean'
+alias mkj='make -j `nproc`'
+
 alias t='tig'
 alias ta='tig --all'
 
