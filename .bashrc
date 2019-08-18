@@ -23,6 +23,9 @@ function configure_zsh() {
     SAVEHIST=10000
     HISTFILE=~/.history
 
+    # History
+    setopt HIST_REDUCE_BLANKS
+
     # Prompting
     setopt PROMPT_SUBST
 
