@@ -107,3 +107,5 @@ if has('vim_starting')
 endif
 
 colorscheme jellybeans
+hi IncSearch cterm=bold ctermfg=white ctermbg=blue
+hi Search    cterm=bold ctermfg=white ctermbg=blue
