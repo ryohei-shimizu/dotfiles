@@ -62,6 +62,9 @@ alias chown='chown -v'
 
 alias g='git'
 
+alias t='tig'
+alias ta='tig --all'
+
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
