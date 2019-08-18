@@ -80,6 +80,8 @@ autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd FileType qf wincmd J " push quickfix window always to the bottom
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
+imap <C-j> <esc>
+
 syntax on
 
 set autoread
