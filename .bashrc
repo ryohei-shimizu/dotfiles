@@ -50,7 +50,7 @@ function configure_zsh() {
     [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 }
 
-stty stop undef
+stty stop undef # Undefine <C-s>
 
 alias cp='cp -i'
 alias mv='mv -i'
