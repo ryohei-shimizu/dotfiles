@@ -10,6 +10,8 @@ function configure_bash() {
     else
         PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
     fi
+
+    [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 }
 
 function configure_zsh() {
@@ -44,6 +46,8 @@ function configure_zsh() {
     if [ -f ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
         . ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
+
+    [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 }
 
 stty stop undef
