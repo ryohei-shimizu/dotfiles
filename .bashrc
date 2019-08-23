@@ -26,7 +26,27 @@ function configure_zsh() {
     HISTFILE=~/.history
 
     # History
+    # setopt APPEND_HISTORY <D>
+    # setopt BANG_HIST (+K) <C> <Z>
+    # setopt EXTENDED_HISTORY <C>
+    # setopt HIST_ALLOW_CLOBBER
+    # setopt HIST_BEEP <D>
+    # setopt HIST_EXPIRE_DUPS_FIRST
+    # setopt HIST_FCNTL_LOCK
+    # setopt HIST_FIND_NO_DUPS
+    # setopt HIST_IGNORE_ALL_DUPS
+    # setopt HIST_IGNORE_DUPS (-h)
+    # setopt HIST_IGNORE_SPACE (-g)
+    # setopt HIST_LEX_WORDS
+    # setopt HIST_NO_FUNCTIONS
+    # setopt HIST_NO_STORE
     setopt HIST_REDUCE_BLANKS
+    # setopt HIST_SAVE_BY_COPY <D>
+    # setopt HIST_SAVE_NO_DUPS
+    # setopt HIST_VERIFY
+    # setopt INC_APPEND_HISTORY
+    # setopt INC_APPEND_HISTORY_TIME
+    # setopt SHARE_HISTORY <K>
 
     # Prompting
     setopt PROMPT_SUBST
