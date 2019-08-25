@@ -59,6 +59,9 @@ alias rm='rm -i'
 alias chgrp='chgrp -v'
 alias chmod='chmod -v'
 alias chown='chown -v'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
 
 alias g='git'
 
