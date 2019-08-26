@@ -53,6 +53,12 @@ function configure_zsh() {
 
     bindkey -v
 
+    autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+    zle -N up-line-or-beginning-search
+    zle -N down-line-or-beginning-search
+    bindkey "^[[A" up-line-or-beginning-search
+    bindkey "^[[B" down-line-or-beginning-search
+
     if [ type $(__git_ps1) ]; then
         PS1=$'%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%n\$ '
     else
