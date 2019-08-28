@@ -60,9 +60,9 @@ function configure_zsh() {
     bindkey "^[[B" down-line-or-beginning-search
 
     if [ type $(__git_ps1) ]; then
-        PS1=$'%F{green}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%n\$ '
+        PS1=$'%F{white}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%F{white}%n%f\$ '
     else
-        PS1=$'%F{green}%m%f:%F{blue}%c%f\n%n\$ '
+        PS1=$'%F{white}%m%f:%F{blue}%c%f\n%F{white}%n%f\$ '
     fi
 
     if [ -f ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
