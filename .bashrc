@@ -118,8 +118,7 @@ fi
 
 if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
 
-function postinstall() {
-    if [ $(uname) == 'Darwin' ]; then
+function postinstall_darwin() {
         local pkgs=( \
                 "bash-completion@2" \
                 "tig" \
@@ -158,7 +157,13 @@ function postinstall() {
         defaults write com.apple.dock wvous-br-modifier -int 0
 
         killall Dock
-    fi
+}
+
+function postinstall() {
+    case $(uname) in
+        Darwin)
+        postinstall_darwin ;;
+    esac
 
     [[ ! -r ~/.git-completion.bash ]] && curl -s \
         https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
