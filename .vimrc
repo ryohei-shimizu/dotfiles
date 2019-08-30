@@ -85,6 +85,7 @@ set cursorline
 set display=lastline
 set hidden
 set matchtime=1
+set mouse=a
 set number
 set pumheight=10
 set showcmd
