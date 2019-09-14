@@ -5,12 +5,6 @@ function configure_bash() {
 
     [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
-    if [ type $(__git_ps1) ]; then
-        PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
-    else
-        PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
-    fi
-
     [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 }
 
@@ -59,12 +53,6 @@ function configure_zsh() {
     bindkey "^[[A" up-line-or-beginning-search
     bindkey "^[[B" down-line-or-beginning-search
 
-    if [ type $(__git_ps1) ]; then
-        PS1=$'%F{white}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%F{white}%n%f\$ '
-    else
-        PS1=$'%F{white}%m%f:%F{blue}%c%f\n%F{white}%n%f\$ '
-    fi
-
     if [ -f ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
         . ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     fi
@@ -102,18 +90,26 @@ alias mkj='make -j `nproc`'
 alias t='tig'
 alias ta='tig --all'
 
+if [ -n ${ZSH_VERSION} ]; then
+    configure_zsh
+    PS1=$'%F{white}%m%f:%F{blue}%c%f\n%F{white}%n%f\$ '
+else
+    configure_bash
+    PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
+fi
+
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="verbose"
-fi
 
-if [ -n ${ZSH_VERSION} ]; then
-    configure_zsh
-else
-    configure_bash
+    if [ -n ${ZSH_VERSION} ]; then
+        PS1=$'%F{white}%m%f:%F{blue}%c%f%F{red}$(__git_ps1 " (%s)")%f\n%F{white}%n%f\$ '
+    else
+        PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
+    fi
 fi
 
 if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
