@@ -20,6 +20,8 @@
     l   = log       --graph --oneline
     la  = log --all --graph --oneline --branches --remotes --tags --date-order
     s   = status
+    su  = submodule update
+    sur = submodule update --init --recursive
 [core]
     editor = vim
 [fetch]
