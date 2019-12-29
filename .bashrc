@@ -91,7 +91,7 @@ alias ta='tig --all'
 
 if [ -n ${ZSH_VERSION} ]; then
     configure_zsh
-    PS1=$'%m:%c\n%n\$ '
+    PS1=$'\n%U%c%u\n%n\$ '
 else
     configure_bash
     PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
@@ -105,7 +105,7 @@ if [ -r ~/.git-prompt.sh ]; then
     GIT_PS1_SHOWUPSTREAM="verbose"
 
     if [ -n ${ZSH_VERSION} ]; then
-        PS1=$'%m:%c$(__git_ps1 " (%s)")\n%n\$ '
+        PS1=$'\n%U%c%u $(__git_ps1 "ᚠ %s")\n%n\$ '
     else
         PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
     fi
