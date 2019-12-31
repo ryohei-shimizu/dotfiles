@@ -191,3 +191,5 @@ if [ -r ~/.git-prompt.sh ]; then
 fi
 
 if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
+
+export PATH="~/.rbenv/shims:$PATH"
