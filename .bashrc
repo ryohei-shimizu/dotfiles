@@ -21,7 +21,7 @@ function configure_zsh() {
 
     # History
     # setopt APPEND_HISTORY <D>
-    # setopt BANG_HIST (+K) <C> <Z>
+    setopt BANG_HIST #(+K) <C> <Z>
     # setopt EXTENDED_HISTORY <C>
     # setopt HIST_ALLOW_CLOBBER
     # setopt HIST_BEEP <D>
