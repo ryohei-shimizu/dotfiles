@@ -36,7 +36,7 @@ function configure_zsh() {
     # setopt HIST_NO_STORE
     setopt HIST_REDUCE_BLANKS
     # setopt HIST_SAVE_BY_COPY <D>
-    # setopt HIST_SAVE_NO_DUPS
+    setopt HIST_SAVE_NO_DUPS
     # setopt HIST_VERIFY
     # setopt INC_APPEND_HISTORY
     # setopt INC_APPEND_HISTORY_TIME
