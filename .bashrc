@@ -64,55 +64,6 @@ function configure_zsh() {
     [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 }
 
-stty stop undef # Undefine <C-s>
-
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-alias ll='ls -lF'
-alias ls='ls -F'
-alias chgrp='chgrp -v'
-alias chmod='chmod -v'
-alias chown='chown -v'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-alias pgrep='pgrep -fl'
-
-alias g='git'
-
-alias mk='make'
-alias mkc='make clean'
-alias mkj='make -j `nproc`'
-
-alias t='tig'
-alias ta='tig --all'
-
-if [ -n ${ZSH_VERSION} ]; then
-    configure_zsh
-    PS1=$'\n%U%~%u\n%n\$ '
-else
-    configure_bash
-    PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
-fi
-
-if [ -r ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWUPSTREAM="verbose"
-
-    if [ -n ${ZSH_VERSION} ]; then
-        PS1=$'\n%U%~%u $(__git_ps1 "ᚠ %s")\n%n\$ '
-    else
-        PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
-    fi
-fi
-
-if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
-
 function postinstall_darwin() {
         local pkgs=( \
                 "bash-completion@2" \
@@ -191,3 +142,52 @@ function print_colors() {
         printf "\n"
     done
 }
+
+stty stop undef # Undefine <C-s>
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias ll='ls -lF'
+alias ls='ls -F'
+alias chgrp='chgrp -v'
+alias chmod='chmod -v'
+alias chown='chown -v'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias pgrep='pgrep -fl'
+
+alias g='git'
+
+alias mk='make'
+alias mkc='make clean'
+alias mkj='make -j `nproc`'
+
+alias t='tig'
+alias ta='tig --all'
+
+if [ -n ${ZSH_VERSION} ]; then
+    configure_zsh
+    PS1=$'\n%U%~%u\n%n\$ '
+else
+    configure_bash
+    PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
+fi
+
+if [ -r ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM="verbose"
+
+    if [ -n ${ZSH_VERSION} ]; then
+        PS1=$'\n%U%~%u $(__git_ps1 "ᚠ %s")\n%n\$ '
+    else
+        PS1='\e[32m\h\e[m:\e[34m\w\e[m$(__git_ps1 " \e[31m(%s)\e[m")\n\u\$ '
+    fi
+fi
+
+if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
