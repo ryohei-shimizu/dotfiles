@@ -123,6 +123,6 @@ if has('vim_starting')
     let &t_SR .= "\e[4 q"
 endif
 
-colorscheme jellybeans
+colorscheme twilight256
 hi IncSearch cterm=bold ctermfg=white ctermbg=blue
 hi Search    cterm=bold ctermfg=white ctermbg=blue
