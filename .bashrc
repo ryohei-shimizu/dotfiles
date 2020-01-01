@@ -6,6 +6,9 @@ function configure_bash() {
     [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
     [ -f ~/.fzf.bash ] && . ~/.fzf.bash
+
+    [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]] && \
+        . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
 }
 
 function configure_zsh() {
@@ -168,6 +171,8 @@ alias mkj='make -j `nproc`'
 alias t='tig'
 alias ta='tig --all'
 
+HOMEBREW_PREFIX=/opt/homebrew
+
 if [ -n ${ZSH_VERSION} ]; then
     configure_zsh
     PS1=$'\n%U%~%u\n%n\$ '
@@ -193,5 +198,9 @@ fi
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 export PATH="~/.rbenv/shims:$PATH"
+
+[[ -d ${HOMEBREW_PREFIX}/sbin ]] && export PATH=${HOMEBREW_PREFIX}/sbin:${PATH}
+[[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
+[[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
 
 if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
