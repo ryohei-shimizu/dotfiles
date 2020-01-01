@@ -190,7 +190,8 @@ if [ -r ~/.git-prompt.sh ]; then
     fi
 fi
 
-if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 export PATH="~/.rbenv/shims:$PATH"
+
+if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
