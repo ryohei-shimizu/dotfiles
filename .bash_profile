@@ -1,8 +1,5 @@
 # .bash_profile, .zshenv
 
-[[ -d /Applications/Xcode.app/Contents/Developer ]] && \
-        export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-
 HOMEBREW_PREFIX=/opt/homebrew
 if [ -d ${HOMEBREW_PREFIX} ]; then
     [[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
