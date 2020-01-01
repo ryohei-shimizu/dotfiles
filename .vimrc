@@ -113,9 +113,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-set foldclose=all
-set foldlevel=0
-set foldmethod=indent
+" set foldclose=all
+" set foldlevel=0
+" set foldmethod=indent
 
 if has('vim_starting')
     let &t_EI .= "\e[2 q"
