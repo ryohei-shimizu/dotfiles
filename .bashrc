@@ -18,9 +18,9 @@ function configure_zsh() {
         fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
     fi
 
+    HISTFILE=~/.history
     HISTSIZE=10000
     SAVEHIST=10000
-    HISTFILE=~/.history
 
     # History
     # setopt APPEND_HISTORY <D>
