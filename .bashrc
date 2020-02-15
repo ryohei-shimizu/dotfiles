@@ -204,7 +204,9 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 [[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 [[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
 
-export PATH="~/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
+if [ -e ~/.rbenv ]; then
+    export PATH="~/.rbenv/shims:$PATH"
+    eval "$(rbenv init -)"
+fi
 
 if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
