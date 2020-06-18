@@ -81,12 +81,12 @@ function postinstall_darwin() {
         done
 
         defaults delete com.apple.dock
-        # defaults write  com.apple.dock autohide       -bool false
+        defaults write  com.apple.dock autohide       -bool true
         # defaults write  com.apple.dock autohide-delay -float 0
         defaults write  com.apple.dock ResetLaunchPad       -boolean    true
         defaults write  com.apple.dock size-immutable       -boolean    true
         defaults write  com.apple.dock position-immutable   -boolean    true
-        defaults write  com.apple.dock orientation          -string     "left"
+        defaults write  com.apple.dock orientation          -string     "bottom"
 
         # Hot corners
         #  0: -                      2: Mission Control
