@@ -70,6 +70,7 @@ augroup END
 
 filetype plugin on
 
+autocmd BufNewFile,BufRead Fastfile    setfiletype ruby
 autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd FileType qf wincmd J " push quickfix window always to the bottom
