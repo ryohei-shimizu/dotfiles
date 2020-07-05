@@ -165,6 +165,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias pgrep='pgrep -fl'
 
+alias c='clear'
 alias g='git'
 
 alias mk='make'
