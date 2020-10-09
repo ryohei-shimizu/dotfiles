@@ -175,6 +175,8 @@ alias mkj='make -j `nproc`'
 alias t='tig'
 alias ta='tig --all'
 
+alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash'
+
 HOMEBREW_PREFIX=/opt/homebrew
 
 if [ -n ${ZSH_VERSION} ]; then
