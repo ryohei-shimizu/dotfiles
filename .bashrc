@@ -19,8 +19,8 @@ function configure_zsh() {
     fi
 
     HISTFILE=~/.history
-    HISTSIZE=10000
-    SAVEHIST=10000
+    HISTSIZE=100000
+    SAVEHIST=100000
 
     # History
     # setopt APPEND_HISTORY <D>
