@@ -208,7 +208,6 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 [[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
 
 if [ -e ~/.rbenv ]; then
-    export PATH="~/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
 fi
 
