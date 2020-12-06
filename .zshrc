@@ -58,6 +58,8 @@ function configure_zsh() {
 
 function postinstall_darwin() {
         local pkgs=( \
+                "git" \
+                "rbenv" \
                 "tig" \
                 "tmux" \
                 "zsh-autosuggestions" \
