@@ -3,10 +3,6 @@
 function configure_zsh() {
     [[ -z ${ZSH_VERSION} ]] && return
 
-    if [ -e ${HOMEBREW_PREFIX}/share/zsh-completions ]; then
-        fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
-    fi
-
     HISTFILE=~/.history
     HISTSIZE=100000
     SAVEHIST=100000
@@ -45,15 +41,25 @@ function configure_zsh() {
     bindkey "^[[A" up-line-or-beginning-search
     bindkey "^[[B" down-line-or-beginning-search
 
-    if [ -f ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-        . ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    fi
+    if type brew &>/dev/null; then
+        HB_PREFIX=$(brew --prefix)
 
-    if [ -f ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-        . ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    fi
+        # zsh-completions
+        FPATH=${HB_PREFIX}/share/zsh-completions:$FPATH
+        autoload -Uz compinit
+        compinit
 
-    [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+        # zsh-autosuggestions
+        source ${HB_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+        # zsh-syntax-highlighting
+        source ${HB_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+        # fzf
+        source ~/.fzf.zsh
+
+        unset HB_PREFIX
+    fi
 }
 
 function postinstall_darwin() {
