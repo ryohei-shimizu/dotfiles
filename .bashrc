@@ -1,15 +1,4 @@
-# .bashrc, .zshrc
-
-function configure_bash() {
-    [[ -z ${BASH_VERSION} ]] && return
-
-    [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
-
-    [ -f ~/.fzf.bash ] && . ~/.fzf.bash
-
-    [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]] && \
-        . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
-}
+# .zshrc
 
 function configure_zsh() {
     [[ -z ${ZSH_VERSION} ]] && return
@@ -69,7 +58,6 @@ function configure_zsh() {
 
 function postinstall_darwin() {
         local pkgs=( \
-                "bash-completion@2" \
                 "tig" \
                 "tmux" \
                 "zsh-autosuggestions" \
@@ -117,8 +105,6 @@ function postinstall() {
         postinstall_darwin ;;
     esac
 
-    [[ ! -r ~/.git-completion.bash ]] && curl -s \
-        https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
     [[ ! -r ~/.git-completion.zsh ]] && curl -s \
         https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh > ~/.git-completion.zsh
     [[ ! -r ~/.git-prompt.sh ]] && curl -s \
@@ -179,13 +165,8 @@ alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFou
 
 HOMEBREW_PREFIX=/opt/homebrew
 
-if [ -n ${ZSH_VERSION} ]; then
-    configure_zsh
-    PS1=$'\n%U%~%u\n%n\$ '
-else
-    configure_bash
-    PS1='\e[32m\h\e[m:\e[34m\w\e[m\n\u\$ '
-fi
+configure_zsh
+PS1=$'\n%U%~%u\n%n\$ '
 
 if [ -r ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
