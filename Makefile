@@ -1,4 +1,4 @@
-SRCS = .config/git .inputrc .tigrc .tmux.conf .vim .vimrc .zshrc
+SRCS = .config/git .config/karabiner/karabiner.json .inputrc .tigrc .tmux.conf .vim .vimrc .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
 
 ~/%: %
