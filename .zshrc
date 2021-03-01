@@ -3,7 +3,6 @@
 function configure_zsh() {
     [[ -z ${ZSH_VERSION} ]] && return
 
-    HISTFILE=~/.history
     HISTSIZE=100000
     SAVEHIST=100000
 
