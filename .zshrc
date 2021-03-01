@@ -192,6 +192,7 @@ fi
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
+[[ -d $HOME/Library/Android/sdk/platform-tools ]] && export PATH=${PATH}:${HOME}/Library/Android/sdk/platform-tools
 [[ -d ${HOMEBREW_PREFIX}/sbin ]] && export PATH=${HOMEBREW_PREFIX}/sbin:${PATH}
 [[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 [[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
