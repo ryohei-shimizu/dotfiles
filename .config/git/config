@@ -25,6 +25,7 @@
     sur = submodule update --init --recursive
 [core]
     editor = vim
+    pager = delta
 [fetch]
     prune = true
 [pull]
@@ -36,7 +37,12 @@
 	required = true
 [diff]
     tool = vimdiff
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
