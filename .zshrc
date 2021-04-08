@@ -206,4 +206,4 @@ if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
-if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
+# if [ -z $TMUX ] && [ $SHLVL -eq 1 ]; then tmux attach || tmux -u; fi
