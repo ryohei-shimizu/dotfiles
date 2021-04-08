@@ -172,8 +172,6 @@ alias ta='tig --all'
 
 alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash'
 
-HOMEBREW_PREFIX=/opt/homebrew
-
 configure_zsh
 PS1=$'\n%U%~%u\n%n\$ '
 
@@ -192,6 +190,8 @@ if [ -r ~/.git-prompt.sh ]; then
 fi
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+
+HOMEBREW_PREFIX=/usr/local
 
 [[ -d $HOME/Library/Android/sdk/platform-tools ]] && export PATH=${PATH}:${HOME}/Library/Android/sdk/platform-tools
 [[ -d ${HOMEBREW_PREFIX}/sbin ]] && export PATH=${HOMEBREW_PREFIX}/sbin:${PATH}
