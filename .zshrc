@@ -83,6 +83,8 @@ function postinstall_darwin() {
         defaults write  com.apple.dock position-immutable   -boolean    true
         defaults write  com.apple.dock orientation          -string     "bottom"
 
+        defaults write  com.apple.finder CreateDesktop      -boolean    false
+
         # Hot corners
         #  0: -                      2: Mission Control
         #  3: Application Windows    4: Desktop
