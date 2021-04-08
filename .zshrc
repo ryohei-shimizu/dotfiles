@@ -32,6 +32,10 @@ function configure_zsh() {
     # Prompting
     setopt PROMPT_SUBST
 
+    setopt nonomatch
+
+    setopt hist_expand
+
     bindkey -v
 
     autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
