@@ -202,6 +202,8 @@ HOMEBREW_PREFIX=/usr/local
 [[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 [[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
 
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
