@@ -202,6 +202,15 @@ HOMEBREW_PREFIX=/usr/local
 [[ -d ${HOMEBREW_PREFIX}/bin ]] && export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 [[ -d ${HOMEBREW_PREFIX}/cache ]] && export HOMEBREW_CACHE=${HOMEBREW_PREFIX}/cache
 
+if [ -d /Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home ]; then
+    export PATH=${PATH}:/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/bin
+    export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+
+elif [ -d /Applications/Android\ Studio.app/Contents/jre/Contents/Home ]; then
+    export PATH=${PATH}:/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin
+    export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+fi
+
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 if [ -e ~/.rbenv ]; then
