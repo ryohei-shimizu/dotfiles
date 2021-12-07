@@ -38,6 +38,10 @@ function! s:plugin_gitgutter()
     packadd vim-gitgutter
 endfunction
 
+function! s:plugin_markdown()
+    packadd vim-markdown
+endfunction
+
 function! s:plugin_nerdcommenter()
     packadd nerdcommenter
 
@@ -65,6 +69,7 @@ augroup lazy-load
     call s:plugin_airline()
     call s:plugin_fugitive()
     call s:plugin_gitgutter()
+    call s:plugin_markdown()
     call s:plugin_nerdcommenter()
 augroup END
 
