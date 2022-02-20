@@ -22,6 +22,7 @@
     l   = log       --graph --oneline
     la  = log --all --graph --oneline --branches --remotes --tags --date-order
     rb  = rebase
+    rs  = reset
     s   = status
     su  = submodule update
     sur = submodule update --init --recursive
