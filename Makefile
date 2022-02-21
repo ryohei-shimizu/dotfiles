@@ -1,6 +1,6 @@
 SRCS = .config/git .tigrc .tmux.conf .vim .vimrc .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
-PACKAGES = ghq rbenv tig tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+PACKAGES = fzf ghq rbenv tig tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
 ~/%: %
 	ln -s $(PWD)/$< $@
