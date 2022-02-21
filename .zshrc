@@ -65,65 +65,6 @@ function configure_zsh() {
     fi
 }
 
-function postinstall_darwin() {
-        local pkgs=( \
-                "git" \
-                "rbenv" \
-                "tig" \
-                "tmux" \
-                "zsh-autosuggestions" \
-                "zsh-completions" \
-                "zsh-syntax-highlighting" \
-                )
-        for pkg in ${pkgs[@]}; do
-            brew install ${pkg}
-        done
-
-        defaults delete com.apple.dock
-        defaults write  com.apple.dock autohide       -bool true
-        # defaults write  com.apple.dock autohide-delay -float 0
-        defaults write  com.apple.dock ResetLaunchPad       -boolean    true
-        defaults write  com.apple.dock size-immutable       -boolean    true
-        defaults write  com.apple.dock position-immutable   -boolean    true
-        defaults write  com.apple.dock orientation          -string     "bottom"
-
-        defaults write  com.apple.finder CreateDesktop      -boolean    false
-
-        # Hot corners
-        #  0: -                      2: Mission Control
-        #  3: Application Windows    4: Desktop
-        #  5: Start Screen Saver     6: Disable Screen Saver
-        #  7: Dashboard             10: Put Display to Sleep
-        # 11: Launchpad             12: Notification Center
-
-        # Top left screen corner
-        defaults write com.apple.dock wvous-tl-corner -int 0
-        defaults write com.apple.dock wvous-tl-modifier -int 0
-        # Top right screen corner
-        defaults write com.apple.dock wvous-tr-corner -int 0
-        defaults write com.apple.dock wvous-tr-modifier -int 0
-        # Bottom left screen corner
-        defaults write com.apple.dock wvous-bl-corner -int 0
-        defaults write com.apple.dock wvous-bl-modifier -int 0
-        # Bottom right screen corner
-        defaults write com.apple.dock wvous-br-corner -int 0
-        defaults write com.apple.dock wvous-br-modifier -int 0
-
-        killall Dock
-}
-
-function postinstall() {
-    case $(uname) in
-        Darwin)
-        postinstall_darwin ;;
-    esac
-
-    [[ ! -r ~/.git-completion.zsh ]] && curl -s \
-        https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh > ~/.git-completion.zsh
-    [[ ! -r ~/.git-prompt.sh ]] && curl -s \
-        https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
-}
-
 function lg() {
     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 
