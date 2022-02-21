@@ -44,24 +44,21 @@ function configure_zsh() {
     bindkey "^[[A" up-line-or-beginning-search
     bindkey "^[[B" down-line-or-beginning-search
 
-    if type brew &>/dev/null; then
-        HB_PREFIX=$(brew --prefix)
+    if [ -e /opt/homebrew ]; then
 
         # zsh-completions
-        FPATH=${HB_PREFIX}/share/zsh-completions:$FPATH
+        FPATH=/opt/homebrew/share/zsh-completions:$FPATH
         autoload -Uz compinit
         compinit
 
         # zsh-autosuggestions
-        source ${HB_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
         # zsh-syntax-highlighting
-        source ${HB_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
         # fzf
         source ~/.fzf.zsh
-
-        unset HB_PREFIX
     fi
 }
 
