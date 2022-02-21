@@ -222,7 +222,9 @@ elif [ -d /Applications/Android\ Studio.app/Contents/jre/Contents/Home ]; then
     export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 fi
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+if [ -e $HOME/.nodebrew ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
 
 if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
