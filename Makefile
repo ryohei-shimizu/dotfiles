@@ -1,4 +1,4 @@
-SRCS = .config/git .config/karabiner/karabiner.json .tigrc .tmux.conf .vim .vimrc .zshrc
+SRCS = .config/git .tigrc .tmux.conf .vim .vimrc .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
 PACKAGES = ghq rbenv tig tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
