@@ -124,30 +124,6 @@ function postinstall() {
         https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
 }
 
-function print_colors() {
-    local fg="\x1b[38;5;"
-    local bg="\x1b[48;5;"
-    local rs="\x1b[0m"
-    local color=0
-    local row
-    local col
-
-    for row in `seq 0 1`; do
-        for col in 0 1 2 3 4 5 6 7; do
-            printf "${bg}${color}m %03d ${rs}${fg}${color}m %03d ${rs}" $color $color
-            color=$((color + 1))
-        done
-        printf "\n"
-    done
-    for row in `seq 0 39`; do
-        for col in 0 1 2 3 4 5; do
-            printf "${bg}${color}m %03d ${rs}${fg}${color}m %03d ${rs}" $color $color
-            color=$((color + 1))
-        done
-        printf "\n"
-    done
-}
-
 function lg() {
     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 
