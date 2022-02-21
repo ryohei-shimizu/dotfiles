@@ -228,4 +228,4 @@ if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
-if [ -z $TMUX ] && [ $TERM_PROGRAM == "Apple_Terminal" ]; then tmux attach || tmux -u; fi
+if [ -z $TMUX ] && [ $TERM_PROGRAM = "Apple_Terminal" ]; then tmux attach || tmux -u; fi
