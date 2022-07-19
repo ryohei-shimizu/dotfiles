@@ -119,20 +119,12 @@ if [ -r ~/.git-prompt.sh ]; then
 fi
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 
 # export PATH for Homebrew
 export PATH=/opt/homebrew/bin:$PATH
 
 [[ -d $HOME/Library/Android/sdk/platform-tools ]] && export PATH=${PATH}:${HOME}/Library/Android/sdk/platform-tools
-
-if [ -d /Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home ]; then
-    export PATH=${PATH}:/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/bin
-    export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
-
-elif [ -d /Applications/Android\ Studio.app/Contents/jre/Contents/Home ]; then
-    export PATH=${PATH}:/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin
-    export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
-fi
 
 if [ -e $HOME/.nodebrew ]; then
     export PATH=$HOME/.nodebrew/current/bin:$PATH
