@@ -130,6 +130,8 @@ if [ -e $HOME/.nodebrew ]; then
     export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
+export PATH=$HOME/fvm/default/bin:$PATH
+
 if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
