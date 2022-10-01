@@ -77,6 +77,7 @@ filetype plugin on
 
 autocmd BufNewFile,BufRead Fastfile    setfiletype ruby
 autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
+autocmd BufNewFile,BufRead Podfile     setfiletype ruby
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd FileType qf wincmd J " push quickfix window always to the bottom
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
