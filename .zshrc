@@ -46,6 +46,8 @@ function configure_zsh() {
 
     if [ -e /opt/homebrew ]; then
 
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
         # zsh-completions
         FPATH=/opt/homebrew/share/zsh-completions:$FPATH
         autoload -Uz compinit
