@@ -120,7 +120,7 @@ if [ -r ~/.git-prompt.sh ]; then
 fi
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 
 # export PATH for Homebrew
 export PATH=/opt/homebrew/bin:$PATH
