@@ -25,6 +25,7 @@
     rb  = rebase
     rs  = reset
     s   = status
+    st  = stash
     su  = submodule update
     sur = submodule update --init --recursive
 [core]
