@@ -18,6 +18,7 @@ clean:
 set_defaults:
 	defaults delete com.apple.dock
 	defaults write  com.apple.dock autohide             -boolean    true
+	defaults write  com.apple.dock autohide-delay       -float      0.0
 	defaults write  com.apple.dock ResetLaunchPad       -boolean    true
 	defaults write  com.apple.dock size-immutable       -boolean    true
 	defaults write  com.apple.dock position-immutable   -boolean    true
