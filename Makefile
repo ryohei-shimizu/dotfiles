@@ -23,4 +23,6 @@ set_defaults:
 	defaults write  com.apple.dock position-immutable   -boolean    true
 	defaults write  com.apple.dock orientation          -string     "bottom"
 	defaults write  com.apple.finder CreateDesktop      -boolean    false
+	defaults write  com.apple.screencapture disable-shadow -boolean true
+	defaults write  com.apple.screencapture type jpeg
 	killall Dock
