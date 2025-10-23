@@ -133,6 +133,11 @@ fi
 
 export PATH=$HOME/fvm/default/bin:$PATH
 
+if [ -e ~/.jenv ]; then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+fi
+
 if [ -e ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
