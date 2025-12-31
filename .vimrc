@@ -1,5 +1,20 @@
 " .vimrc
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/twilight256.vim'
+
+call plug#end()
+
 function! ExecCurrentLineOnBash()
     .w !bash
 endfunction
@@ -30,21 +45,7 @@ function! s:plugin_airline()
     let g:airline_theme='distinguished'
 endfunction
 
-function! s:plugin_fugitive()
-    packadd vim-fugitive
-endfunction
-
-function! s:plugin_gitgutter()
-    packadd vim-gitgutter
-endfunction
-
-function! s:plugin_markdown()
-    packadd vim-markdown
-endfunction
-
 function! s:plugin_nerdcommenter()
-    packadd nerdcommenter
-
 	" Add spaces after comment delimiters by default
 	let g:NERDSpaceDelims = 1
 	" Use compact syntax for prettified multi-line comments
@@ -67,9 +68,6 @@ augroup lazy-load
     autocmd!
     autocmd FileType swift call s:plugins_for_swift()
     call s:plugin_airline()
-    call s:plugin_fugitive()
-    call s:plugin_gitgutter()
-    call s:plugin_markdown()
     call s:plugin_nerdcommenter()
 augroup END
 
