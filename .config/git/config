@@ -11,6 +11,7 @@
     ca  = commit --amend
     cb  = checkout -b
     ce  = commit --allow-empty -m \"empty commit\"
+    cei = commit --allow-empty -m \"Initial commit\"
     cw  = commit               -m \"wip commit\"
     co  = checkout
     cp  = cherry-pick
