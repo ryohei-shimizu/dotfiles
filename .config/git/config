@@ -28,6 +28,7 @@
     st  = stash
     su  = submodule update
     sur = submodule update --init --recursive
+    w   = worktree
 [core]
     editor = vim
     pager = delta
