@@ -97,9 +97,6 @@ alias mk='make'
 alias mkc='make clean'
 alias mkj='make -j `nproc`'
 
-alias t='tig'
-alias ta='tig --all'
-
 alias symbolicatecrash="$(xcode-select -p)/../SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash"
 
 configure_zsh
