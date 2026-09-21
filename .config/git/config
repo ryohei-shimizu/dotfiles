@@ -43,6 +43,7 @@
     process = git-lfs filter-process
     required = true
 [diff]
+    algorithm = patience
     tool = vimdiff
 [interactive]
     diffFilter = delta --color-only
