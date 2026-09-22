@@ -1,4 +1,4 @@
-SRCS = .config/git .config/lazygit .tmux.conf .vim .vimrc .zshrc
+SRCS = .config/git .config/lazygit .tmux.conf .vim/ftdetect .vimrc .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
 PACKAGES = fzf ghq rbenv lazygit tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
