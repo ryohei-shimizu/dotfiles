@@ -25,21 +25,6 @@ function! ChangeFileFormatSJIS2UTF8()
     set fileformat=unix
 endfunction
 
-function! s:plugins_for_swift()
-    packadd vim-lsp
-    packadd async.vim
-
-    if executable('sourcekit-lsp')
-    au User lsp_setup call lsp#register_server({
-            \ 'name': 'sourcekit-lsp',
-            \ 'cmd': {server_info->['sourcekit-lsp']},
-            \ 'whitelist': ['swift'],
-            \ })
-    endif
-
-    autocmd FileType swift setlocal omnifunc=lsp#complete
-endfunction
-
 function! s:plugin_airline()
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_theme='distinguished'
@@ -66,7 +51,6 @@ endfunction
 
 augroup lazy-load
     autocmd!
-    autocmd FileType swift call s:plugins_for_swift()
     call s:plugin_airline()
     call s:plugin_nerdcommenter()
 augroup END
