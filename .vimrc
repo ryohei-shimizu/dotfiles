@@ -147,8 +147,8 @@ command! ExecShell execute ':.w !' . &shell
 
 " Convert file encoding from Shift_JIS (cp932) to UTF-8 (:ConvertSJIS)
 command! ConvertSJIS call s:ChangeFileFormatSJIS2UTF8()
-function! s:ChangeFileFormatSJIS2UTF8()
+function! s:ChangeFileFormatSJIS2UTF8() abort
     e ++enc=cp932
-    set fileencoding=utf-8
-    set fileformat=unix
+    setlocal fileencoding=utf-8
+    setlocal fileformat=unix
 endfunction
