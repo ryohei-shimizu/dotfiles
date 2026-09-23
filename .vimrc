@@ -93,6 +93,16 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" Persistent Undo
+if has('persistent_undo')
+    let s:undo_dir = expand('~/.vim/undo')
+    if !isdirectory(s:undo_dir)
+        call mkdir(s:undo_dir, 'p')
+    endif
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
 " Change cursor shape across modes
 if has('vim_starting')
     let &t_EI .= "\e[2 q"
