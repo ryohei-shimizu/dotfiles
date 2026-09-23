@@ -142,8 +142,8 @@ augroup END
 " ============================================================================
 " Custom Commands & Functions
 
-" Execute current line in bash (:ExecBash)
-command! ExecBash .w !bash
+" Execute current line in default shell (:ExecShell)
+command! ExecShell execute ':.w !' . &shell
 
 " Convert file encoding from Shift_JIS (cp932) to UTF-8 (:ConvertSJIS)
 command! ConvertSJIS call s:ChangeFileFormatSJIS2UTF8()
