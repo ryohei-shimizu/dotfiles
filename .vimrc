@@ -49,6 +49,11 @@ call plug#end()
 " ============================================================================
 " Enable Built-in Features & Filetype
 
+" Built-in EditorConfig for Vim 9.0.1799+ / Neovim 0.9+
+if has('patch-9.0.1799') || has('nvim-0.9')
+    packadd! editorconfig
+endif
+
 filetype plugin indent on
 syntax on
 
