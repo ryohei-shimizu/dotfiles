@@ -62,6 +62,7 @@ syntax on
 
 set autoread
 set background=dark
+set colorcolumn=120
 set cursorline
 set display=lastline
 set hidden
@@ -116,6 +117,7 @@ endif
 " Keep custom highlights after colorscheme change
 augroup ProfileColors
     autocmd!
+    autocmd ColorScheme * hi ColorColumn ctermbg=black
     autocmd ColorScheme * hi IncSearch cterm=bold ctermfg=white ctermbg=blue
     autocmd ColorScheme * hi Search cterm=bold ctermfg=white ctermbg=blue
 augroup END
