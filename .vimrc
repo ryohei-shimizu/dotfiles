@@ -1,10 +1,33 @@
 " .vimrc
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" ============================================================================
+" Plugin Manager
+
+let s:data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(s:data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo ' . s:data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" ============================================================================
+" Plugin Configurations (Global Variables)
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'distinguished'
+
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**', 'right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+" ============================================================================
+" Load Plugins
 
 call plug#begin()
 
@@ -13,79 +36,33 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/twilight256.vim'
 
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 call plug#end()
 
-function! ExecCurrentLineOnBash()
-    .w !bash
-endfunction
+" ============================================================================
+" Enable Built-in Features & Filetype
 
-function! ChangeFileFormatSJIS2UTF8()
-    e ++enc=cp932
-    set fileencoding=utf-8
-    set fileformat=unix
-endfunction
+" Built-in EditorConfig for Vim 9.0.1799+ / Neovim 0.9+
+if has('patch-9.0.1799') || has('nvim-0.9')
+    packadd! editorconfig
+endif
 
-function! s:plugins_for_swift()
-    packadd vim-lsp
-    packadd async.vim
-
-    if executable('sourcekit-lsp')
-    au User lsp_setup call lsp#register_server({
-            \ 'name': 'sourcekit-lsp',
-            \ 'cmd': {server_info->['sourcekit-lsp']},
-            \ 'whitelist': ['swift'],
-            \ })
-    endif
-
-    autocmd FileType swift setlocal omnifunc=lsp#complete
-endfunction
-
-function! s:plugin_airline()
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline_theme='distinguished'
-endfunction
-
-function! s:plugin_nerdcommenter()
-	" Add spaces after comment delimiters by default
-	let g:NERDSpaceDelims = 1
-	" Use compact syntax for prettified multi-line comments
-	let g:NERDCompactSexyComs = 1
-	" Align line-wise comment delimiters flush left instead of following code indentation
-	let g:NERDDefaultAlign = 'left'
-	" Set a language to use its alternate delimiters by default
-	let g:NERDAltDelims_java = 1
-	" Add your own custom formats or override the defaults
-	let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-	" Allow commenting and inverting empty lines (useful when commenting a region)
-	let g:NERDCommentEmptyLines = 1
-	" Enable trimming of trailing whitespace when uncommenting
-	let g:NERDTrimTrailingWhitespace = 1
-	" Enable NERDCommenterToggle to check all selected lines is commented or not
-	let g:NERDToggleCheckAllLines = 1
-endfunction
-
-augroup lazy-load
-    autocmd!
-    autocmd FileType swift call s:plugins_for_swift()
-    call s:plugin_airline()
-    call s:plugin_nerdcommenter()
-augroup END
-
-filetype plugin on
-
-autocmd BufNewFile,BufRead Fastfile    setfiletype ruby
-autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
-autocmd BufNewFile,BufRead Podfile     setfiletype ruby
-autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
-autocmd FileType qf wincmd J " push quickfix window always to the bottom
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
-
-imap <C-j> <esc>
-
+filetype plugin indent on
 syntax on
+
+" ============================================================================
+" General Options
 
 set autoread
 set background=dark
+set colorcolumn=120
 set cursorline
 set display=lastline
 set hidden
@@ -111,24 +88,67 @@ set ignorecase
 set incsearch
 set smartcase
 
-set autoindent
 set smartindent
-
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" set foldclose=all
-" set foldlevel=0
-" set foldmethod=indent
+" Persistent Undo
+if has('persistent_undo')
+    let s:undo_dir = expand('~/.vim/undo')
+    if !isdirectory(s:undo_dir)
+        call mkdir(s:undo_dir, 'p')
+    endif
+    set undodir=~/.vim/undo
+    set undofile
+endif
 
+" Change cursor shape across modes
 if has('vim_starting')
     let &t_EI .= "\e[2 q"
     let &t_SI .= "\e[6 q"
     let &t_SR .= "\e[4 q"
 endif
 
+" ============================================================================
+" Color Schemes and Highlights
+
+" Keep custom highlights after colorscheme change
+augroup ProfileColors
+    autocmd!
+    autocmd ColorScheme * hi ColorColumn ctermbg=black
+    autocmd ColorScheme * hi IncSearch cterm=bold ctermfg=white ctermbg=blue
+    autocmd ColorScheme * hi Search cterm=bold ctermfg=white ctermbg=blue
+augroup END
+
 colorscheme twilight256
-hi IncSearch cterm=bold ctermfg=white ctermbg=blue
-hi Search    cterm=bold ctermfg=white ctermbg=blue
+
+" ============================================================================
+" Key Mappings & Autocmds
+
+imap <C-j> <esc>
+
+augroup CustomAutoCmds
+    autocmd!
+    " Remove trailing whitespace on save without moving cursor
+    autocmd BufWritePre * let b:cur_view = winsaveview() | keepjumps %s/\s\+$//e | call winrestview(b:cur_view)
+
+    " Open Quickfix window at the bottom with full width
+    autocmd FileType qf wincmd J
+    autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+augroup END
+
+" ============================================================================
+" Custom Commands & Functions
+
+" Execute current line in default shell (:ExecShell)
+command! ExecShell execute ':.w !' . &shell
+
+" Convert file encoding from Shift_JIS (cp932) to UTF-8 (:ConvertSJIS)
+command! ConvertSJIS call s:ChangeFileFormatSJIS2UTF8()
+function! s:ChangeFileFormatSJIS2UTF8() abort
+    e ++enc=cp932
+    setlocal fileencoding=utf-8
+    setlocal fileformat=unix
+endfunction
