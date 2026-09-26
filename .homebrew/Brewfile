@@ -1,7 +1,13 @@
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Remote repository management made easy
 brew "ghq"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Ruby version manager
