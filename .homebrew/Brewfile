@@ -8,8 +8,14 @@ brew "ghq"
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
+# Manage your Java environment
+brew "jenv"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# Development kit for the Java programming language
+brew "openjdk@21"
 # Ruby version manager
 brew "rbenv"
 # Terminal multiplexer
