@@ -1,3 +1,5 @@
+# Statistics utility to count lines of code
+brew "cloc"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
