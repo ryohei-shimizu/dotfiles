@@ -14,6 +14,8 @@ brew "git-delta"
 brew "git-lfs"
 # Manage your Java environment
 brew "jenv"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Environment diagnostics for Kotlin Multiplatform Mobile app development
 brew "kdoctor"
 # Simple terminal UI for git commands
