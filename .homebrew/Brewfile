@@ -24,6 +24,8 @@ brew "lazygit"
 brew "openjdk@17"
 # Development kit for the Java programming language
 brew "openjdk@21"
+# File browser
+brew "ranger"
 # Ruby version manager
 brew "rbenv"
 # Terminal multiplexer
