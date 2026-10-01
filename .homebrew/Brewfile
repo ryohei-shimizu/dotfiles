@@ -32,6 +32,8 @@ brew "rbenv"
 brew "tmux"
 # Kotlin Native Xcode Plugin
 brew "xcode-kotlin"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
