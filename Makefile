@@ -1,6 +1,5 @@
-SRCS = .config/git .config/lazygit .tmux.conf .vim/ftdetect .vimrc .zshrc
+SRCS = .config/git .config/lazygit .homebrew/Brewfile .tmux.conf .vim/ftdetect .vimrc .zshrc
 TARGET = $(patsubst %,~/%,$(SRCS))
-PACKAGES = fzf ghq rbenv lazygit tmux zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
 ~/%: %
 	ln -s $(PWD)/$< $@
@@ -10,7 +9,7 @@ install: $(TARGET)
 install_packages:
 	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh > ~/.git-completion.zsh
 	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
-	brew install $(PACKAGES)
+	brew bundle install --global --verbose
 
 clean:
 	rm -f $(TARGET)
